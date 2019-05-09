@@ -1,4 +1,4 @@
-package core_java_basics;
+package polymorphism;
 /**
  * Java Concept: Dynamic Method Dispatch(DMD) This comes under the section of
  * Polymorphism DMD is a Runtime Polymorph concept i.e Late-Binding Dynamic

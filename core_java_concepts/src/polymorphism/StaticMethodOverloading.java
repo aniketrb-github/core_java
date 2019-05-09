@@ -1,4 +1,4 @@
-package core_java_basics;
+package polymorphism;
 /**
  * Static Variables & Methods are surely inherited & can be overloaded BUT Can
  * the static methods be Overriden ?
