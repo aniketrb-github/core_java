@@ -3,7 +3,7 @@ package singleton_design_pattern;
  * Singleton Design Pattern implementation
  * @author Ainket Bharsakale
  */
-public class Singleton {
+public class SingletonMain {
 	public static void main(String[] args) {
 		SingletonClass theSingleObject = SingletonClass.getReferenceToSingletonObject();
 		System.out.println("Singleton Object 1: "+theSingleObject.hashCode());
@@ -21,18 +21,29 @@ public class Singleton {
  * We are making this class as Singleton
  * @author Aniket Bharsakale
  */
-class SingletonClass {
-	
-	  // static object creation reasong being only one copy of object will be created
-	  static SingletonClass mySingleObject = new SingletonClass();
-	  
-	  // private ctor. so as to restrict other classes from creating multiple objects of this class
-	  private SingletonClass() { }
-	  
-	  // static getter method due to static object public SingletonClass
-	  public static SingletonClass getReferenceToSingletonObject() {
-		  return mySingleObject;
-	  }
+class SingletonClass implements Cloneable {
+
+	// static object creation reasong being only one copy of object will be created
+	private static SingletonClass mySingleObject = null;
+
+	// private ctor. so as to restrict other classes from creating multiple objects of this class
+	private SingletonClass() {
+	}
+
+	static {
+		mySingleObject = new SingletonClass();
+	}
+
+	// static getter method due to static object public SingletonClass
+	public static SingletonClass getReferenceToSingletonObject() {
+		return mySingleObject;
+	}
+
+	// This breaks the Singleton design pattern idea
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }
 
 class RegularClass {
